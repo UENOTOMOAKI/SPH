@@ -63,7 +63,7 @@ program model_column
   allocate(fix(3,maxnp))
   allocate(mat(maxnp))
   np=0
-  do i=1,int(l*10/dp+1)  ! Šî‘b’n”Õ
+  do i=1,int(l*10/dp+1)  ! kisoziban
     !x=-dp+i*dp
     x=float(i-1)*dp
     do j=1,int(l*10/dp+1)
@@ -86,7 +86,7 @@ program model_column
        end do
       end do  
        
-     do i=1,int(l*10/dp+1)   !‰~’Œ
+     do i=1,int(l*10/dp+1)   !entyuu
     !x=-dp+i*dp
     x=float(i-1)*dp
     do j=1,int(l*10/dp+1)
@@ -112,7 +112,7 @@ program model_column
       end do
     end do
 
-  do i=1,int(l*10/dp+1)   !‹Ÿ‘Ì
+  do i=1,int(l*10/dp+1)   !kyousitai
     x=float(i-1)*dp
     do j=1,int(l*10/dp+1)
       y=float(j-1)*dp
@@ -135,7 +135,7 @@ program model_column
     end do
    end do
 
-     do i=1,int(l*10/dp+1)   !Ú‰×”Å
+     do i=1,int(l*10/dp+1)   !saikaban
     x=float(i-1)*dp
     do j=1,int(l*10/dp+1)
       y=float(j-1)*dp
