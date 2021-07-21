@@ -1,0 +1,22 @@
+SPH = sph3d
+OBJS =  kernel_mod.o particle_mod.o input_mod.o box_mod.o output_mod.o  intforce_mod.o \
+	extforce_mod.o time_integral_mod.o damping_mod.o density_mod.o xsph_mod.o sph3d.o
+FC = gfortran
+FFLAGS =  -O2 -fconvert=big-endian -fopenmp #-DXPSH
+#FFLAGS =  -O2 -fconvert=big-endian
+
+.SUFFIXES : .f90
+
+ALL: $(SPH)
+
+$(SPH): $(OBJS)
+	$(FC) -o $@ $(OBJS) $(FFLAGS)
+
+%.o: %.f90
+	$(FC) -c $< $(FFLAGS)
+
+%.mod: %.f90 %.o
+	@:
+
+clean:
+	rm -f *.o sph3d *.mod *~

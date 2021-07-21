@@ -1,0 +1,22 @@
+SPH = sph3d
+OBJS =  mod_kernel.o mod_particle.o mod_input.o mod_box.o mod_output.o mod_intforce.o \
+	mod_extforce.o mod_time_integral.o  mod_density.o mod_xsph.o sph3d.o
+FC = ifort
+FFLAGS =  -O2 -convert big_endian -openmp -p #for gprof
+#FFLAGS =  -O2 -convert big_endian  # -p for gprof
+
+.SUFFIXES : .f90
+
+ALL: $(SPH)
+
+$(SPH): $(OBJS)
+	$(FC) -o $@ $(OBJS) $(FFLAGS)
+
+%.o: %.f90
+	$(FC) -c $< $(FFLAGS)
+
+%.mod: %.f90 %.o
+	@:
+
+clean:
+	rm -f *.o sph3d *.mod *~
